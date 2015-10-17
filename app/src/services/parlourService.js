@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('users')
-         .service('userService', ['$q', UserService]);
+         .service('parlourService', ['$q', parlourService]);
 
   /**
    * Users DataService
@@ -12,7 +12,7 @@
    * @returns {{loadAll: Function}}
    * @constructor
    */
-  function UserService($q){
+  function parlourService($q){
     var users = [
       {
         name: 'Basic Service',

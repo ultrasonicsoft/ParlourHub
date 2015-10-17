@@ -30,7 +30,7 @@
 
 </head>
 
-<body ng-app="starterApp" layout="row" ng-controller="UserController as ul" ng-cloak>
+<body ng-app="starterApp" layout="row" ng-controller="mainCtrl as ul" ng-cloak>
 
   <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
 
@@ -38,9 +38,6 @@
       <h1>Menu</h1>
     </md-toolbar>
 
-    <a href="Book/Moby">Moby</a>
-    <a href="Book/Moby/ch/1">Moby: Ch1</a>
-    
     <md-list>
       <md-list-item ng-repeat="it in ul.users">
         <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
@@ -52,8 +49,8 @@
 
   </md-sidenav>
 
-
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
       <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
@@ -63,10 +60,11 @@
     </md-toolbar>
 
     <md-content flex id="content">
-       
-       <div ng-view></div>
-       
+
+
       <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
+      <div ng-view></div>
+      
       <h2>{{ul.selected.name}}</h2>
       <p>{{ul.selected.content}}</p>
 
@@ -85,10 +83,9 @@
   <script src="./bower_components/angular-aria/angular-aria.js"></script>
   <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
 
-  <script src="./src/users/Users.js"></script>
-  <script src="./src/users/app.js"></script>
-  <script src="./src/users/UserController.js"></script>
-  <script src="./src/users/UserService.js"></script>
+  <script src="./src/app.js"></script>
+  <script src="./src/controllers/mainCtrl.js"></script>
+  <script src="./src/services/parlourService.js"></script>
 
   <script type="text/javascript">
     angular
