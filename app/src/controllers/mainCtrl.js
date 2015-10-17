@@ -54,7 +54,7 @@ angular.module('users').controller('mainCtrl',
 
                         return $mdBottomSheet.show({
                                 parent: angular.element(document.getElementById('content')),
-                                templateUrl: './src/contactSheet.html',
+                                templateUrl: './src/views/book-appointment.html',
                                 controller: ['$mdBottomSheet', ContactPanelController],
                                 controllerAs: "cp",
                                 bindToController: true,
