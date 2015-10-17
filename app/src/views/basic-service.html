@@ -1,60 +1,41 @@
-<h2 class="md-display-1">Basic Service</h2>
+<div ng-controller="basicServicesCtrl as bsc" ng-cloak>
+	<md-content>
+		<h2 class="md-display-1">Basic Service</h2>
 
-<h3 class=".md-display-2">As a quick and efficient method of temporarily removing unwanted hair from face and body, waxing, threading are the most
-	popular methods available today. Our Basic Beauty Services are listed below :</h3>
+		<h3 class=".md-display-2">As a quick and efficient method of temporarily removing unwanted hair from face and body, waxing, threading are the most
+popular methods available today. Our Basic Beauty Services are listed below :</h3>
 
-<div layout="row" layout-md="column">
-	<div flex>
-		<h4 class=".md-display-2">Waxing</h4>
-		<h4 class=".md-display-2">
-			<ul>
-				<li> Upperlip</li>
-				<li> Chin</li>
-				<li> Forehead</li>
-				<li> Cheek</li>
-				<li> Sides</li>
-				<li> Full Face</li>
-				<li> Under Arms</li>
-				<li> Half leg</li>
-				<li> Half Arms</li>
-				<li> Lower and Upper back</li>
-				<li> Full Back</li>
-				<li> Full Arms</li>
-				<li> Full Legs</li>
-				<li> Full Body</li>
-			</ul>	
-		</h4>
-	</div>
-	<div flex>
-		<h4 class=".md-display-2">Bleach</h4>
-		<h4 class=".md-display-2">
-			<ul>
-				<li> Face</li>
-				<li> Neck</li>
-				<li> Face and Neck</li>
-				<li> Face, Neck, Blouse Line</li>
-				<li> Full Arms</li>
-				<li> Half Arms</li>
-				<li> Half Legs</li>
-				<li> Feet</li>
-				<li> Under Arms</li>
-				<li> Stomach</li>
-				<li> Full</li>
-			</ul>
-		</h4>
-	</div>
-	<div flex>
-		<h4 class=".md-display-2">Threading</h4>
-		<h4 class=".md-display-2">
-			<ul>
-				<li> Eyebrows</li>
-				<li> Upperlip</li>
-				<li> Chin</li>
-				<li> Forehead</li>
-				<li> Cheek</li>
-				<li> Sides</li>
-				<li> Full Face</li>
-			</ul>
-		</h4>
-	</div>
+		<div layout="row" layout-md="column">
+			<div flex>
+				<h4 class=".md-display-2">Waxing</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="waxing in bsc.waxingServices">
+							{{waxing}}
+						</li>
+					</ul>
+				</h4>
+			</div>
+			<div flex>
+				<h4 class=".md-display-2">Bleach</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="bleach in bsc.bleachServices">
+							{{bleach}}
+						</li>
+					</ul>			
+				</h4>
+			</div>
+			<div flex>
+				<h4 class=".md-display-2">Threading</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="thread in bsc.threadingServices">
+							{{thread}}
+						</li>
+					</ul>	
+				</h4>
+			</div>
+		</div>
+	</md-content>
 </div>
