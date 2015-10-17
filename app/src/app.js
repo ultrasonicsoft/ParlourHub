@@ -11,6 +11,7 @@ var app = angular.module('users', ['ngRoute'])
         controller:'basicServicesCtrl'
       })
       .when('/HairCare', {
-        templateUrl: 'src/views/hair-care.html'
+        templateUrl: 'src/views/hair-care.html',
+        controller:'hairCareCtrl'
       })
   });

@@ -1,12 +1,19 @@
-<h2 class="md-display-1">Hair Care</h2>
+<div ng-controller="hairCareCtrl as hcc" ng-cloak>
+	<md-content>
+		<h2 class="md-display-1">Hair Care</h2>
 
-<h3 class=".md-display-2">Hair health is a reflection of how healthy or unhealthy your life is. Taking care of your hair is as important as any other part of the body. Our stylists are Equipped with the knowledge of latest trends and most recent styles. Our Hair coloring products are safe to your hair:</h3>
+		<h3 class=".md-display-2">Hair health is a reflection of how healthy or unhealthy your life is. Taking care of your hair is as important as any other part of the body. Our stylists are Equipped with the knowledge of latest trends and most recent styles. Our Hair coloring products are safe to your hair:</h3>
 
-<div layout="row" layout-sm="column">
-	<div flex>
-		<h4 class=".md-display-2">Hair Care</h4>
-		<h4 class=".md-display-2">
-			<ul>
+		<div layout="row" layout-sm="column">
+			<div flex>
+				<h4 class=".md-display-2">Hair Care</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="hairCare in hcc.hairCareServices">
+							{{hairCare}}
+						</li>
+					</ul>
+			<!--<ul>
 				<li> Hair cut</li>
 				<li> Hair coloring</li>
 				<li> Head massage</li>
@@ -14,7 +21,9 @@
 				<li> Hair treatment</li>
 				<li> Hair Fall Treatment</li>
 				<li> Anti Dandruff Treatment</li>
-			</ul>	
+			</ul>	-->
 		</h4>
-	</div>
+			</div>
+		</div>
+	</md-content>
 </div>
