@@ -6,7 +6,10 @@
 var app = angular.module('users', ['ngRoute'])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
-       .when('/BasicService', {
+      .when('/BasicService', {
         templateUrl: 'src/views/basic-service.html'
-      })      
+      })
+      .when('/HairCare', {
+        templateUrl: 'src/views/hair-care.html'
+      })
   });
