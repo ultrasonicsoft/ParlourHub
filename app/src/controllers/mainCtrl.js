@@ -42,10 +42,8 @@ angular.module('users').controller('mainCtrl',
                         self.selected = angular.isNumber(user) ? $scope.users[user] : user;
                         self.toggleList();
 
-                        if (user.name == "Basic Service") {
-                                $location.path('/BasicService');
+                        $location.path(user.url);
 
-                        }
                 }
         
                 /**
@@ -56,7 +54,7 @@ angular.module('users').controller('mainCtrl',
 
                         return $mdBottomSheet.show({
                                 parent: angular.element(document.getElementById('content')),
-                                templateUrl: './src/views/contactSheet.html',
+                                templateUrl: './src/contactSheet.html',
                                 controller: ['$mdBottomSheet', ContactPanelController],
                                 controllerAs: "cp",
                                 bindToController: true,
