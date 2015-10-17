@@ -1,8 +1,33 @@
-'use strict';
-angular.module('users').controller('UserController',
-	function (userService, $mdSidenav, $mdBottomSheet, $log, $q) {
-		var self = this;
-
+/* global UserController */
+/* global BookController */
+/* global ChapterController */
+(function () {
+    
+    angular
+    .module('users', ['ngRoute'])
+    .controller('UserController', [
+        'userService', '$mdSidenav', '$mdBottomSheet', '$log', '$q',
+        UserController
+    ])
+    .controller('BookController', [
+        '$scope', '$routeParams',
+        BookController
+    ])
+    .controller('ChapterController', [
+        '$scope', '$routeParams',
+        ChapterController
+    ]);
+    
+    /**
+   * Main Controller for the Angular Material Starter App
+   * @param $scope
+   * @param $mdSidenav
+   * @param avatarsService
+   * @constructor
+   */
+  function UserController(userService, $mdSidenav, $mdBottomSheet, $log, $q) {
+        var self = this;
+        
         self.selected = null;
         self.users = [];
         self.selectUser = selectUser;
@@ -12,11 +37,11 @@ angular.module('users').controller('UserController',
         // Load all registered users
         
         userService
-			.loadAllUsers()
-			.then(function (users) {
-				self.users = [].concat(users);
-				self.selected = users[0];
-			});
+      .loadAllUsers()
+      .then(function (users) {
+            self.users = [].concat(users);
+            self.selected = users[0];
+        });
         
         // *********************************
         // Internal methods
@@ -26,9 +51,9 @@ angular.module('users').controller('UserController',
      * First hide the bottomsheet IF visible, then
      * hide or Show the 'left' sideNav area
      */
-		function toggleUsersList() {
+    function toggleUsersList() {
             var pending = $mdBottomSheet.hide() || $q.when(true);
-
+            
             pending.then(function () {
                 $mdSidenav('left').toggle();
             });
@@ -38,7 +63,7 @@ angular.module('users').controller('UserController',
      * Select the current avatars
      * @param menuId
      */
-		function selectUser(user) {
+    function selectUser(user) {
             self.selected = angular.isNumber(user) ? $scope.users[user] : user;
             self.toggleList();
         }
@@ -46,9 +71,9 @@ angular.module('users').controller('UserController',
         /**
      * Show the bottom sheet
      */
-		function showContactOptions($event) {
+    function showContactOptions($event) {
             var user = self.selected;
-
+            
             return $mdBottomSheet.show({
                 parent: angular.element(document.getElementById('content')),
                 templateUrl: './src/users/view/contactSheet.html',
@@ -63,7 +88,7 @@ angular.module('users').controller('UserController',
             /**
        * Bottom Sheet controller for the Avatar Actions
        */
-			function ContactPanelController($mdBottomSheet) {
+      function ContactPanelController($mdBottomSheet) {
                 this.user = user;
                 this.actions = [
                     { name: 'Phone', icon: 'phone', icon_url: 'assets/svg/phone.svg' },
@@ -75,5 +100,17 @@ angular.module('users').controller('UserController',
                     $mdBottomSheet.hide(action);
                 };
             }
-		};
-	});
+        }
+    }
+    
+    function BookController($scope, $routeParams) {
+        $scope.name = "BookController";
+        $scope.params = $routeParams;
+    }
+    
+    function ChapterController($scope, $routeParams) {
+        $scope.name = "ChapterController";
+        $scope.params = $routeParams;
+    }
+
+})();
