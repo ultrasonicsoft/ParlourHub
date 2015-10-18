@@ -1,11 +1,22 @@
 'use strict';
 angular.module('users').controller('bookAppointmentCtrl',
-        function (hairCareService) {
-                var self = this;
-                self.hairCareServices = [];
+  function (hairCareService, $mdDialog) {
+    var self = this;
+    self.cancel = cancel;
+    self.bookAppointment = bookAppointment;
+    self.hide = hide;
+    self.bookingDate = new Date();
+    self.bookingTime = new Date();
 
-                hairCareService.getHairCareServices()
-                        .then(function (hairCare) {
-                                self.hairCareServices = [].concat(hairCare);
-                        });
-        });
+    function hide() {
+      $mdDialog.hide();
+    };
+    function cancel() {
+      $mdDialog.cancel();
+    };
+
+    function bookAppointment() {
+      alert('booked appointment');
+      self.hide();
+    };
+  });

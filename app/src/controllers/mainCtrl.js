@@ -1,6 +1,6 @@
 'use strict';
 angular.module('users').controller('mainCtrl',
-        function (parlourService, $mdSidenav, $mdBottomSheet, $log, $q, $location) {
+        function (parlourService, $mdSidenav, $mdBottomSheet, $log, $q, $location, $mdDialog) {
                 var self = this;
 
                 self.selected = null;
@@ -50,33 +50,24 @@ angular.module('users').controller('mainCtrl',
              * Show the bottom sheet
              */
                 function showContactOptions($event) {
+
+
+                        $mdDialog.show({
+                                controller: 'bookAppointmentCtrl',
+                                templateUrl: './src/views/book-appointment.html',
+                                parent: angular.element(document.body),
+                                targetEvent: $event,
+                                clickOutsideToClose: true
+                        })
+                                .then(function (answer) {
+
+                                }, function () {
+
+                                });
+
                         var user = self.selected;
 
-                        return $mdBottomSheet.show({
-                                parent: angular.element(document.getElementById('content')),
-                                templateUrl: './src/views/book-appointment.html',
-                                controller: ['$mdBottomSheet', ContactPanelController],
-                                controllerAs: "cp",
-                                bindToController: true,
-                                targetEvent: $event
-                        }).then(function (clickedItem) {
-                                clickedItem && $log.debug(clickedItem.name + ' clicked!');
-                        });
-            
-                        /**
-                   * Bottom Sheet controller for the Avatar Actions
-                   */
-                        function ContactPanelController($mdBottomSheet) {
-                                this.user = user;
-                                this.actions = [
-                                        { name: 'Phone', icon: 'phone', icon_url: 'assets/svg/phone.svg' },
-                                        { name: 'Twitter', icon: 'twitter', icon_url: 'assets/svg/twitter.svg' },
-                                        { name: 'Google+', icon: 'google_plus', icon_url: 'assets/svg/google_plus.svg' },
-                                        { name: 'Hangout', icon: 'hangouts', icon_url: 'assets/svg/hangouts.svg' }
-                                ];
-                                this.submitContact = function (action) {
-                                        $mdBottomSheet.hide(action);
-                                };
-                        }
+
+
                 };
         });

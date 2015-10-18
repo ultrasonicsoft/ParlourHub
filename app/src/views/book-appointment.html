@@ -1,35 +1,41 @@
-<md-bottom-sheet class="md-list md-has-header">
+<md-dialog aria-label="Book My Appointment" ng-cloak>
+  <form ng-controller="bookAppointmentCtrl as bac">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Book Appointment</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="bac.cancel()">
+          <md-icon md-svg-src="assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <div class="md-dialog-content">
 
-  <md-subheader>
-    <span class="name">Book {{ cp.user.name }}</span>:
-  </md-subheader>
+        <div ng-controller="bookAppointmentCtrl" layout="column" ng-cloak>
+          <br/>
+          <md-content class="autoScroll">
+            <md-datepicker ng-model="bac.bookingDate" md-placeholder="Enter date"></md-datepicker>
+            <md-input-container flex>
+              <label>Enter Time</label>
+              <input type="time" ng-model="bac.bookingTime" placeholder="HH:mm:ss" value="bac.bookingTime | date: 'HH:mm'" />
+            </md-input-container>
+          </md-content>
 
-  <div ng-controller="bookAppointmentCtrl" layout="column" ng-cloak>
-    <br/>
-    <md-content layout-padding class="autoScroll">
-      <md-input-container class="md-icon-float">
-        <!-- Use floating label instead of placeholder -->
-        <label>Name</label>
-        <md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
-        <input ng-model="user.name" type="text">
-      </md-input-container>
-      <md-input-container md-no-float>
-        <md-icon md-svg-src="assets/img/icons/ic_phone_24px.svg"></md-icon>
-        <input ng-model="user.phone" type="text" placeholder="Phone Number">
-      </md-input-container>
-      <md-input-container>
-        <!-- Use floating placeholder instead of label -->
-        <md-icon md-svg-src="assets/img/icons/ic_email_24px.svg" class="email"></md-icon>
-        <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
-      </md-input-container>
-      <md-input-container md-no-float>
-        <md-icon md-svg-src="assets/img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
-        <input ng-model="user.address" type="text" placeholder="Address">
-      </md-input-container>
-       <md-datepicker ng-model="user.submissionDate" md-placeholder="Enter date"></md-datepicker>
-    </md-content>
-    <time-date-picker ng-model="dateValue"></time-date-picker>
-    <md-button class="md-raised md-primary">Book My Appointment</md-button>
-  </div>
+        </div>
+      </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
 
-</md-bottom-sheet>
+      <span flex></span>
+
+      <md-button class="md-raised md-warn" ng-click="bac.cancel()">Cancel</md-button>
+
+      <md-button class="md-raised md-primary" ng-click="bac.bookAppointment()">
+        <md-tooltip>Book My Appointment</md-tooltip>
+        <md-icon md-svg-icon="share"></md-icon>
+        Book Appointment
+      </md-button>
+    </div>
+  </form>
+</md-dialog>

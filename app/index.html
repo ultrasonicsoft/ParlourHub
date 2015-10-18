@@ -59,17 +59,17 @@
       <h1>Parlour Hub</h1>
     </md-toolbar>
 
-    <md-content flex id="content">
+    <md-content flex layout-padding id="content">
       <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
-      <div ng-view></div>
 
-      <!--<h2>{{ul.selected.name}}</h2>
-      <p>{{ul.selected.content}}</p>-->
-
-      <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
+      <md-button class="md-raised md-primary" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
         <md-tooltip>Book {{ ul.selected.name }}</md-tooltip>
         <md-icon md-svg-icon="share"></md-icon>
+        Book Appointment
       </md-button>
+
+      <div ng-view></div>
+
     </md-content>
 
   </div>
@@ -80,9 +80,6 @@
   <script src="./bower_components/angular-animate/angular-animate.js"></script>
   <script src="./bower_components/angular-aria/angular-aria.js"></script>
 
-  <link rel='stylesheet' href='./bower_components/sc-date-time/dist/sc-date-time.css'>
-  <script src='./bower_components/sc-date-time/dist/sc-date-time.js'></script>
-  
   <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
 
   <script src="./src/app.js"></script>
