@@ -16,7 +16,7 @@ angular.module('users').controller('bookAppointmentCtrl',
     };
 
     function bookAppointment() {
-      alert('booked appointment');
+      alert( self.bookingDate + ' : ' + self.bookingTime);
       self.hide();
     };
   });
