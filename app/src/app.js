@@ -14,4 +14,12 @@ var app = angular.module('users', ['ngRoute'])
         templateUrl: 'src/views/hair-care.html',
         controller:'hairCareCtrl'
       })
-  });
+  }).directive('login', function() {
+  return {
+    templateUrl: './src/views/login.html'
+  };
+}).directive('dashboard', function() {
+  return {
+    templateUrl: './src/views/dashboard.html'
+  };
+});

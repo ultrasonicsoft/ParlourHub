@@ -1,0 +1,41 @@
+<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+
+      <md-toolbar class="md-whiteframe-z1">
+        <h1>Menu</h1>
+      </md-toolbar>
+
+      <md-list>
+        <md-list-item ng-repeat="it in mc.users">
+          <md-button ng-click="mc.selectUser(it)" ng-class="{'selected' : it === mc.selected }">
+            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+            {{it.name}}
+          </md-button>
+        </md-list-item>
+      </md-list>
+
+    </md-sidenav>
+
+    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+
+      <md-toolbar layout="row" class="md-whiteframe-z1">
+        <md-button class="menu" hide-gt-sm ng-click="mc.toggleList()" aria-label="Show User List">
+          <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
+        <h1>Parlour Hub</h1>
+      </md-toolbar>
+
+      <md-content flex layout-padding id="content">
+        <md-icon md-svg-icon="{{mc.selected.avatar}}" class="avatar"></md-icon>
+
+        <md-button class="md-raised md-primary" md-no-ink ng-click="mc.showContactOptions($event)" aria-label="Contact User">
+          <md-tooltip>Book {{ mc.selected.name }}</md-tooltip>
+          <md-icon md-svg-icon="share"></md-icon>
+          Book Appointment
+        </md-button>
+
+        <div ng-view></div>
+
+      </md-content>
+
+    </div>

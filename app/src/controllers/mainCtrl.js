@@ -8,6 +8,8 @@ angular.module('users').controller('mainCtrl',
                 self.selectUser = selectUser;
                 self.toggleList = toggleUsersList;
                 self.showContactOptions = showContactOptions;
+                self.login = login;
+                self.isLoggedIn = false;
         
                 // Load all registered users
         
@@ -26,6 +28,13 @@ angular.module('users').controller('mainCtrl',
              * First hide the bottomsheet IF visible, then
              * hide or Show the 'left' sideNav area
              */
+            function login(){
+                    alert('test');
+                        self.isLoggedIn = true;
+            }
+                 function testing(){
+                       self.isLoggedIn = true;
+            }
                 function toggleUsersList() {
                         var pending = $mdBottomSheet.hide() || $q.when(true);
 

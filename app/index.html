@@ -29,11 +29,12 @@
   </style>
 </head>
 
-<body ng-app="starterApp" layout="row" ng-controller="mainCtrl as ul" ng-cloak>
-  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+<body ng-app="starterApp" layout="row" ng-controller="mainCtrl as mc" ng-cloak>
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2" ng-if="!mc.isLoggedIn">
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
-      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+      <md-button class="menu" hide-gt-sm ng-click="mc.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu"></md-icon>
       </md-button>
       <h1>Parlour Hub</h1>
@@ -41,38 +42,17 @@
 
     <div layout="row">
       <div flex flex-order="1" flex-order-gt-md="3">
-        <md-card>
-          <md-content layout-padding class="autoScroll">
-            <md-input-container class="md-icon-float">
-              <!-- Use floating label instead of placeholder -->
-              <label>User Name</label>
-              <md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
-              <input ng-model="user.name" type="text">
-            </md-input-container>
-            <md-input-container class="md-icon-float">
-              <!-- Use floating label instead of placeholder -->
-              <label>Password</label>
-              <md-icon md-svg-src="assets/img/icons/ic_lock_black_24px.svg" class="name"></md-icon>
-              <input ng-model="user.name" type="password">
-            </md-input-container>
-          </md-content>
-          <div class="md-actions" layout="row">
-            <span flex></span>
-            <md-button class="md-raised md-primary">
-              Login
-            </md-button>
-            <md-button class="md-raised md-warn">
-              Register
-            </md-button>
-          </div>
-          </form>
-        </md-card>
+        <!--Login form-->
+        <login></login>
       </div>
       <div flex flex-order="2">
       </div>
       <div flex flex-order="3" flex-order-gt-md="1">
       </div>
     </div>
+  </div>
+  <div ng-if="mc.isLoggedIn">
+    <dashboard></dashboard>
   </div>
 </body>
 <!--<body ng-app="starterApp" layout="row" ng-controller="mainCtrl as ul" ng-cloak>
@@ -84,8 +64,8 @@
     </md-toolbar>
 
     <md-list>
-      <md-list-item ng-repeat="it in ul.users">
-        <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+      <md-list-item ng-repeat="it in mc.users">
+        <md-button ng-click="mc.selectUser(it)" ng-class="{'selected' : it === mc.selected }">
           <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
           {{it.name}}
         </md-button>
@@ -98,17 +78,17 @@
 
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
-      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+      <md-button class="menu" hide-gt-sm ng-click="mc.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu"></md-icon>
       </md-button>
       <h1>Parlour Hub</h1>
     </md-toolbar>
 
     <md-content flex layout-padding id="content">
-      <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
+      <md-icon md-svg-icon="{{mc.selected.avatar}}" class="avatar"></md-icon>
 
-      <md-button class="md-raised md-primary" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
-        <md-tooltip>Book {{ ul.selected.name }}</md-tooltip>
+      <md-button class="md-raised md-primary" md-no-ink ng-click="mc.showContactOptions($event)" aria-label="Contact User">
+        <md-tooltip>Book {{ mc.selected.name }}</md-tooltip>
         <md-icon md-svg-icon="share"></md-icon>
         Book Appointment
       </md-button>
