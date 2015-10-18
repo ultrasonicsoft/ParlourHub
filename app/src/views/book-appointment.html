@@ -2,7 +2,7 @@
   <form ng-controller="bookAppointmentCtrl as bac">
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Book Appointment</h2>
+        <h2>Book {{bac.selectedUser.name}} Appointment</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="bac.cancel()">
           <md-icon md-svg-src="assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('users').controller('mainCtrl',
-        function (parlourService, $mdSidenav, $mdBottomSheet, $log, $q, $location, $mdDialog) {
+        function (parlourService,appContextService, $mdSidenav, $mdBottomSheet, $log, $q, $location, $mdDialog) {
                 var self = this;
 
                 self.selected = null;
@@ -42,6 +42,8 @@ angular.module('users').controller('mainCtrl',
                         self.selected = angular.isNumber(user) ? $scope.users[user] : user;
                         self.toggleList();
 
+                        appContextService.setselectedService(self.selected);
+                   
                         $location.path(user.url);
 
                 }
@@ -50,7 +52,7 @@ angular.module('users').controller('mainCtrl',
              * Show the bottom sheet
              */
                 function showContactOptions($event) {
-
+                        appContextService.setselectedService(self.selected);
 
                         $mdDialog.show({
                                 controller: 'bookAppointmentCtrl',
