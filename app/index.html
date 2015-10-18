@@ -27,74 +27,99 @@
       display: none !important;
     }
   </style>
-
 </head>
 
 <body ng-app="starterApp" layout="row" ng-controller="mainCtrl as ul" ng-cloak>
-  <div flex ng-cloak>
-    <br/>
-    <md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
-        <h2 class="md-flex">Register New User</h2>
-      </div>
-    </md-toolbar>
-    <md-content layout-padding class="autoScroll">
-      <md-input-container class="md-icon-float">
-        <!-- Use floating label instead of placeholder -->
-        <label>Name</label>
-        <md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
-        <input ng-model="user.name" type="text">
-      </md-input-container>
-      <md-input-container md-no-float>
-        <md-icon md-svg-src="assets/img/icons/ic_phone_24px.svg"></md-icon>
-        <input ng-model="user.phone" type="text" placeholder="Phone Number">
-      </md-input-container>
-      <md-input-container>
-        <!-- Use floating placeholder instead of label -->
-        <md-icon md-svg-src="assets/img/icons/ic_email_24px.svg" class="email"></md-icon>
-        <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
-      </md-input-container>
-      <md-input-container md-no-float>
-        <md-icon md-svg-src="assets/img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
-        <input ng-model="user.address" type="text" placeholder="Address">
-      </md-input-container>
-    </md-content>
-    <md-input-container md-no-float>
-      <md-button class="md-raised md-primary">
-        <md-tooltip>Register</md-tooltip>
-        Register
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu"></md-icon>
       </md-button>
-    </md-input-container>
-  </div>
-  <span flex></span>
-  <div flex ng-cloak>
-    <br/>
-      <md-toolbar class="md-primary">
-      <div class="md-toolbar-tools">
-        <h2 class="md-flex">Sign in</h2>
-      </div>
+      <h1>Parlour Hub</h1>
     </md-toolbar>
-    <md-content layout-padding class="autoScroll">
-      <md-input-container class="md-icon-float">
-        <!-- Use floating label instead of placeholder -->
-        <label>User Name</label>
-        <md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
-        <input ng-model="user.name" type="text">
-      </md-input-container>
-      <md-input-container class="md-icon-float">
-        <!-- Use floating label instead of placeholder -->
-        <label>Password</label>
-        <md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
-        <input ng-model="user.name" type="password">
-      </md-input-container>
+
+    <md-content layout-padding>
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <md-card>
+            <div flex ng-cloak>
+              <br/>
+              <md-toolbar class="md-hue-2">
+                <div class="md-toolbar-tools">
+                  <h2 class="md-flex">Register New User</h2>
+                </div>
+              </md-toolbar>
+              <md-content layout-padding class="autoScroll">
+                <md-input-container class="md-icon-float">
+                  <!-- Use floating label instead of placeholder -->
+                  <label>User Name</label>
+                  <md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
+                  <input ng-model="user.name" type="text">
+                </md-input-container>
+                <md-input-container class="md-icon-float">
+                  <!-- Use floating label instead of placeholder -->
+                  <label>Password</label>
+                  <md-icon md-svg-src="assets/img/icons/ic_lock_black_24px.svg" class="name"></md-icon>
+                  <input ng-model="user.name" type="password">
+                </md-input-container>
+                <md-input-container md-no-float>
+                  <md-icon md-svg-src="assets/img/icons/ic_phone_24px.svg"></md-icon>
+                  <input ng-model="user.phone" type="text" placeholder="Phone Number">
+                </md-input-container>
+                <md-input-container>
+                  <!-- Use floating placeholder instead of label -->
+                  <md-icon md-svg-src="assets/img/icons/ic_email_24px.svg" class="email"></md-icon>
+                  <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+                </md-input-container>
+                <md-input-container md-no-float>
+                  <md-icon md-svg-src="assets/img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+                  <input ng-model="user.address" type="text" placeholder="Address">
+                </md-input-container>
+              </md-content>
+              <md-input-container md-no-float>
+                <md-button class="md-raised md-primary">
+                  <md-tooltip>Register</md-tooltip>
+                  Register
+                </md-button>
+              </md-input-container>
+            </div>
+          </md-card>
+        </md-input-container>
+        <md-input-container flex>
+          <md-card flex="75%">
+            <div flex ng-cloak>
+              <br/>
+              <md-toolbar class="md-primary">
+                <div class="md-toolbar-tools">
+                  <h2 class="md-flex">Sign in</h2>
+                </div>
+              </md-toolbar>
+              <md-content layout-padding class="autoScroll">
+                <md-input-container class="md-icon-float">
+                  <!-- Use floating label instead of placeholder -->
+                  <label>User Name</label>
+                  <md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
+                  <input ng-model="user.name" type="text">
+                </md-input-container>
+                <md-input-container class="md-icon-float">
+                  <!-- Use floating label instead of placeholder -->
+                  <label>Password</label>
+                  <md-icon md-svg-src="assets/img/icons/ic_lock_black_24px.svg" class="name"></md-icon>
+                  <input ng-model="user.name" type="password">
+                </md-input-container>
+              </md-content>
+              <md-input-container md-no-float>
+                <md-button class="md-raised md-primary">
+                  <md-tooltip>Login</md-tooltip>
+                  Login
+                </md-button>
+              </md-input-container>
+            </div>
+          </md-card>
+        </md-input-container>
+      </div>
     </md-content>
-    <md-input-container md-no-float>
-      <md-button class="md-raised md-primary">
-        <md-tooltip>Login</md-tooltip>
-        Login
-      </md-button>
-    </md-input-container>
-  </div>
 </body>
 <!--<body ng-app="starterApp" layout="row" ng-controller="mainCtrl as ul" ng-cloak>
 
