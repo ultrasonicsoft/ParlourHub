@@ -10,9 +10,39 @@ angular.module('users').controller('mainCtrl',
                 self.showContactOptions = showContactOptions;
                 self.login = login;
                 self.isLoggedIn = false;
+                
+                self.openMenu = openMenu;
+                 self.notificationsEnabled = true;
+                 self.toggleNotifications = toggleNotifications;
+                 self.redial = redial;
+                 self.checkVoicemail = checkVoicemail;
         
-                // Load all registered users
-        
+         var originatorEv;
+         function openMenu($mdOpenMenu, ev) {
+                originatorEv = ev;
+                $mdOpenMenu(ev);
+                };
+                
+                 function toggleNotifications() {
+      this.notificationsEnabled = !this.notificationsEnabled;
+    };
+                function redial() {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .targetEvent(originatorEv)
+          .clickOutsideToClose(true)
+          .parent('body')
+          .title('Suddenly, a redial')
+          .content('You just called a friend; who told you the most amazing story. Have a cookie!')
+          .ok('That was easy')
+      );
+      originatorEv = null;
+    };
+    
+    function checkVoicemail() {
+      // This never happens.
+    };
+                // Load all registered users        
                 parlourService
                         .loadAllUsers()
                         .then(function (users) {
