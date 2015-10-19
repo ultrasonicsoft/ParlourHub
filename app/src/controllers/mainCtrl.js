@@ -29,7 +29,6 @@ angular.module('users').controller('mainCtrl',
              * hide or Show the 'left' sideNav area
              */
             function login(){
-                    alert('test');
                         self.isLoggedIn = true;
             }
                  function testing(){
