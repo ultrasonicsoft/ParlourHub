@@ -108,7 +108,7 @@ angular.module('users').controller('mainCtrl',
                         appContextService.setselectedService(self.selected);
 
                         $mdDialog.show({
-                                controller: 'bookAppointmentCtrl',
+                                controller: 'registerCtrl',
                                 templateUrl: './src/views/book-appointment.html',
                                 parent: angular.element(document.body),
                                 targetEvent: $event,
