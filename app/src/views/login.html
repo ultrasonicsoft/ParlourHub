@@ -1,26 +1,27 @@
 <md-card>
-	<md-content layout-padding class="autoScroll">
-		<md-input-container class="md-icon-float">
-			<!-- Use floating label instead of placeholder -->
-			<label>User Name</label>
-			<md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
-			<input ng-model="user.name" type="text">
-		</md-input-container>
-		<md-input-container class="md-icon-float">
-			<!-- Use floating label instead of placeholder -->
-			<label>Password</label>
-			<md-icon md-svg-src="assets/img/icons/ic_lock_black_24px.svg" class="name"></md-icon>
-			<input ng-model="user.name" type="password">
-		</md-input-container>
-	</md-content>
-	<div class="md-actions" layout="row">
-		<span flex></span>
-		<md-button class="md-raised md-primary" ng-click="mc.login()">
-			Login
-		</md-button>
-		<md-button class="md-raised md-warn">
-			Register
-		</md-button>
-	</div>
+	<form>
+		<md-content layout-padding class="autoScroll">
+			<md-input-container class="md-icon-float">
+				<!-- Use floating label instead of placeholder -->
+				<label>User Name</label>
+				<md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
+				<input ng-model="user.name" type="text">
+			</md-input-container>
+			<md-input-container class="md-icon-float">
+				<!-- Use floating label instead of placeholder -->
+				<label>Password</label>
+				<md-icon md-svg-src="assets/img/icons/ic_lock_black_24px.svg" class="name"></md-icon>
+				<input ng-model="user.name" type="password">
+			</md-input-container>
+		</md-content>
+		<div class="md-actions" layout="row">
+			<span flex></span>
+			<md-button class="md-raised md-primary" ng-click="mc.login()">
+				Login
+			</md-button>
+			<md-button class="md-raised md-warn" ng-click="mc.register($event)">
+				Register
+			</md-button>
+		</div>
 	</form>
 </md-card>

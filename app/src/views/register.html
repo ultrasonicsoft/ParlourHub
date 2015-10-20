@@ -1,0 +1,50 @@
+<md-dialog aria-label="Mango (Fruit)" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Register</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="assets/assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <div class="md-dialog-content">
+        <md-content layout-padding class="autoScroll">
+          <h2>Please provide below details to register your account with us!</h2>
+
+          <md-input-container class="md-icon-float">
+            <!-- Use floating label instead of placeholder -->
+            <label>Name</label>
+            <md-icon md-svg-src="assets/img/icons/ic_person_24px.svg" class="name"></md-icon>
+            <input ng-model="user.name" type="text">
+          </md-input-container>
+          <md-input-container md-no-float>
+            <md-icon md-svg-src="assets/img/icons/ic_phone_24px.svg"></md-icon>
+            <input ng-model="user.phone" type="text" placeholder="Phone Number">
+          </md-input-container>
+          <md-input-container>
+            <!-- Use floating placeholder instead of label -->
+            <md-icon md-svg-src="assets/img/icons/ic_email_24px.svg" class="email"></md-icon>
+            <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+          </md-input-container>
+          <md-input-container md-no-float>
+            <md-icon md-svg-src="assets/img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+            <input ng-model="user.address" type="text" placeholder="Address">
+          </md-input-container>
+         
+        </md-content>
+      </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button class="md-raised md-primary" ng-click="mc.login()">
+        Register
+      </md-button>
+      <md-button class="md-raised md-warn" ng-click="mc.register($event)">
+        Cancel
+      </md-button>
+    </div>
+  </form>
+</md-dialog>
