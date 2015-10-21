@@ -1,3 +1,4 @@
+/* global angular */
 'use strict';
 angular.module('users').controller('mainCtrl',
         function (parlourService, appContextService, $mdSidenav, $mdBottomSheet, $log, $q, $location, $mdDialog) {

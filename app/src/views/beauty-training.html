@@ -1,0 +1,35 @@
+<div ng-controller="beautyTrainigCtrl as btc" ng-cloak>
+	<md-content>
+		<h2 class="md-display-1">Beauty Training</h2>
+
+		<h3 class=".md-display-2"><i>Beauty Training Institute</i><br>
+<p><b>You carrier begins here . . .</b></p>
+<p>The curriculum at the School of Cosmetology and Hairdressing is planned to ensure that every student leaves feeling confident of running a beauty clinic or as a make-up artist. Practical Classes are held on daily basis to evaluate the performance of each student and certificates or diplomas are awarded at the end of every course.
+Beauty Training Institute of Cosmetology and Hairdressing is run by qualified experts and offers various kinds of Beauty courses for ladies who want to make cosmetology as their profession. The courses are designed in such a way that school-leavers, college students and housewives are sure to find one that suits them. At Good looks can be drawn out and cultivated through learning and practice.</p><br>
+<i>Course Details</i>
+:</h3>
+
+		<div layout="row" layout-sm="column">
+			<div flex>
+				<h4 class=".md-display-2">Beauty Training</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="beautyTaining in btc.beautyTrainingServices">
+							{{beautyTraining}}
+						</li>
+					</ul>
+			<!--<ul>
+				<li> Basic Diploma Course </li>
+				<li> Advanced Diploma Beauty Courses</li>
+				<li> Advanced Hair Techniques Course </li>
+				<li> Spa Course </li>
+				<li> Mehandhi Course </li>
+				<li> Make-up Techniques </li>
+				<li> Others </li>
+				
+			</ul>	-->
+		</h4>
+			</div>
+		</div>
+	</md-content>
+</div>

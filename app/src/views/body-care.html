@@ -1,0 +1,30 @@
+<div ng-controller="bodyCareCtrl as bcc" ng-cloak>
+	<md-content>
+		<h2 class="md-display-1">Body Care</h2>
+
+		<h3 class=".md-display-2">In today’s time, Everybody experiences stress in some or the other way. If you cannot find a solution to tackle it, you should know that massages are the best stress busters. Massages rinse off all the toxins from the body:
+Massage, Encourages sleep, Improves the blood circulation through the body. Skin polishing is done by using natural products for treating dryness, acne, dull skin. It improves skin tone and colour.
+Our therapies are done in separate designated rooms by professional massage therapist. You can enjoy the ambience and the best possible services in a warm friendly environment.
+We have a variety of body massages done by experienced professionals. Place your trust and your body in the loving hands of a trained professional massage therapist. Massage creates an overall feeling of wellbeing.
+:</h3>
+
+		<div layout="row" layout-sm="column">
+			<div flex>
+				<h4 class=".md-display-2">Hair Care</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="bodyCare in bcc.bodyCareServices">
+							{{bodyCare}}
+						</li>
+					</ul>
+			<!--<ul>
+				<li> Aroma Body Massage </li>
+				<li> Body Polishing</li>
+				<li> Detoxification </li>
+				
+			</ul>	-->
+		</h4>
+			</div>
+		</div>
+	</md-content>
+</div>

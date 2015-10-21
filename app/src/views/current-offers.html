@@ -1,0 +1,33 @@
+<div ng-controller="currentOffersCtrl as coc" ng-cloak>
+	<md-content>
+		<h2 class="md-display-1">Current Offers</h2>
+
+		<h3 class=".md-display-2">Parlour Hub offers a world class beauty parlour, beauty spa, beauty parlour services. Here you will be given quality service and special care. It is amongst the most trustworthy parlour amongst women. It offers you the best quality services. We've found the best chance to grasp the best deals in town. This is an exclusive deal for all deal seekers. Let your day's tiredness melt away with these awesome deals : 
+			<br><p><b><i>TO AVAILABLE THIS OFFERS…..APPOINTMENT IS MUST!!!!</i></b></p>
+		</h3>
+
+		<div layout="row" layout-md="column">
+			<div flex>
+				<h4 class=".md-display-2">Festival Offers</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="festivalOffer in coc.festivalOfferServices">
+							{{festivalOffer}}
+						</li>
+					</ul>
+				</h4>
+			</div>
+			<div flex>
+				<h4 class=".md-display-2">Birthday Offer</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="birthdayOffer in coc.birthdayOfferServices">
+							{{birthdayOffer}}
+						</li>
+					</ul>			
+				</h4>
+			</div>
+			
+		</div>
+	</md-content>
+</div>

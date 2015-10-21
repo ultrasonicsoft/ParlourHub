@@ -1,0 +1,30 @@
+<div ng-controller="bridalPackageCtrl as bpc" ng-cloak>
+	<md-content>
+		<h2 class="md-display-1">Bridal Package</h2>
+
+		<h3 class=".md-display-2"><i><b>Be Special... On your Special Day!!!!</b></i><br>
+Everyone has a dream of their Wedding. This is the day when every woman wants to look her best. Parlour Hubs helps you to look gorgeous on your special day. Our Experienced staff will recommend right services which suits your skin and hair. Check out our packages and services.<br>
+<p>At Honeyz we only use the top rated products available in the market today, this combined with our years of experience we help bring out the unique individual style of each bride and we make sure that you look your very best on this day.:</p>
+</h3>
+
+		<div layout="row" layout-sm="column">
+			<div flex>
+				<h4 class=".md-display-2">Bridal Package</h4>
+				<h4 class=".md-display-2">
+					<ul>
+						<li ng-repeat="bridalPackage in bpc.bridalPackageServices">
+							{{bridalPackage}}
+						</li>
+					</ul>
+			<!--<ul>
+				<li> Luxury Package </li>
+				<li>  Majestic Package </li>
+				<li> Classic Package </li>
+				<li> Exotic Package </li>
+				
+			</ul>	-->
+		</h4>
+			</div>
+		</div>
+	</md-content>
+</div>
